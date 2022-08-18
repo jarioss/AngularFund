@@ -1,9 +1,52 @@
+<h1>Eventos</h1>
+<button [disabled]="btnDisable"> Enviar</button>
+<button (click)="toggleButton()">Toggle Button</button> <!--(click es el evento y "" es el metodo que se trae del componente ts)-->
+
+<p>Edad {{person.age}}</p>
+<button (click)="increaseAge()">Aumentar edad</button>
+<button (click)="diminishAge()">Disminuir edad</button>
+
+<!--Evento Scroll de tipo HTMLElement-->
+
+<!--Se puede crear eventos y llamarlos de la siguiente manera-->
+<div class="box" (scroll)="onScroll($event)">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam praesentium repellendus facilis quis quisquam eius officiis eligendi, architecto blanditiis tenetur sit, nulla alias ea earum corporis vitae doloremque voluptatibus minus?</p>
+</div>
+
+<!--Evento change de tipo HTMLInputElement-->
+<p>Nombre {{person.name}}</p>
+<input type="text" [value]="person.name" (keyup)="changeName($event)"> <!--KeyUp es el evento que registra todo lo que tecleamos-->
+
+
+<hr>
+
+<h1>Propiedades</h1>
+<!--<button disable="false">Enviar</button> ===> Este elemento puede tener un estado, y se puede controlar desde html o desde el componente ts como con property binding-->
+
+<!--El property biding se utiliza exclusivamente para propiedades de elementos de html-, se recomienda tambien utilizarlo para los src, para no estar preguntando si es un string -->
+
+<button [disabled]="btnDisable"> Enviar</button>
+<input type="text" [value]="person.name"> <!--  El input como tal no renderiza por esto se puede poner un valor inicial para mostrar como ejemplo-->
+
+<progress max="100" [value]="person.age"></progress> <!--Es la forma de poner una barra de progreso y se puede traer una propiedad en el valor como por ejemplo la edad -->
+
+<img width="100xp" [src]="person.avatar"> <!--las imagenes tambien se pueden traer porque el src(fuente) es una propiedad-->
+
+<hr>  <!--Division sencilla-->
+
+
+
+
 <h1>Hola mundo</h1> <!--Este es el componente de angular para renderizar, es la forma de repartir las responsabilidades-->
+
+<!--El String Interpolation se usa para ingresar contenido en una etiqueta que se necesite renderizar de alguna manera-->
+
 <h2>{{'Hola mundo, '.repeat(5)}}</h2> <!--Lo que esta dentro de las llaves es el String interpolation, funiona como una función y permite utilizar varios metodos de JS-->
 <p> La el resultado de la suma de 3+3 es: {{'La respuesta de la suma es: ' + (3+3)}}</p>
 
-<h3>Hola, soy {{name}} y tengo {{age}} años</h3> <!--Puede llamar objetos de otras componentes desde que haya un tamplateURL, que funciona como un modelo-->
+<h3>Hola, soy {{name}} y tengo {{person.age}} años</h3> <!--Puede llamar objetos de otras componentes desde que haya un tamplateURL, que funciona como un modelo-->
 <figure>
-  <img src="{{img}}" alt="Esta es una imagen de subrealista de cuervos y un puerto. Foto de akın  akdağ de Pexels">
+  <img width="300xp" src={{img}} alt = "" >
 </figure>
+
 
