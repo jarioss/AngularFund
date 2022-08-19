@@ -1,6 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .box {
   width: 200px;
   height: 200px;
   overflow: scroll;
   background-color: cornflowerblue;
+}
+.products--grid {
+  display : flex;
+  flex-direction: column;
+
+  div {
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    h2, p {
+      margin: 0;
+    }
+  }
+}
+@media screen and (min-width: 600px) {
+  .products--grid{
+    display: flex;
+    flex-direction: row;
+    div {
+      img {
+        width: 40%;
+        border-radius: 10px;
+      }
+      h2, p {
+        margin: 0;
+      }
+    }
+  }
 }
