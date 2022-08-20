@@ -7,16 +7,27 @@ import { Product } from './product.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent { /*los objetos deben tener acceso publico para traerlo desde otro componente*/
+  widthImg = 10;
   name = 'Jorge';
   age = 26;
   img = 'https://source.unsplash.com/random';
   btnDisable = true;
   /*Vamos a crear un objeto en ts */
+  form = {
+    name: '',
+    email: '',
+    password: ''
+  }
+  box = {
+    width: 100,
+    heigth: 100,
+    background: 'red'
+  };
   person = {
     name: 'Jorge',
     age: 26,
     avatar: 'https://source.unsplash.com/random'
-  }
+  };
   names : string[] = [];
   newName = "";
 
@@ -79,6 +90,9 @@ products: Product[] = [
   }
   deleteName(index: number) {
     this.names.splice(index, 1);
+  }
+  onRegister(){
+    console.log(this.form)
   }
 }
 

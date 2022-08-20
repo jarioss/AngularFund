@@ -1,3 +1,71 @@
+<h1>Formulario</h1>
+<form (ngSubmit)="onRegister()" #myForm="ngForm">
+  <div>
+    <label for="name">Nombre</label>
+    <input id="name" name="name" type="text" required [(ngModel)]="form.name" />
+    <p>Mensaje de error</p>
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input id="email" name="email"  type="email" required [(ngModel)]="form.email" />
+    <p>Mensaje de error</p>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" required [(ngModel)]="form.password" />
+    <p>Mensaje de error</p>
+  </div>
+  <button [disabled]="myForm.invalid" type="submit">Registrar</button>
+  <button type="button">Enviar</button>
+</form>
+<hr>
+<h1>ngClass & ngStyle </h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
+<hr class="error-line"
+  [ngClass]="{
+    'valid': nameInput4.valid,
+    'invalid': nameInput4.invalid
+  }"
+/>
+<p class="message-error" [class.invalid]="nameInput4.invalid">
+  El campo es requerido
+</p>
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="box.width" />
+    <input type="number" [(ngModel)]="box.heigth" />
+    <input type="color" [(ngModel)]="box.background" />
+  </div>
+  <div>
+    <div [ngStyle]="{
+      'width.px': box.width,
+      'heigth.px': box.heigth,
+      'background-color': box.background,
+      'display': 'block'
+    }"></div>
+  </div>
+</div>
+
+<hr>
+<h1>Class & Style</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
+<p class="message-error" [class.invalid]="nameInput2.invalid">
+  El campo es requerido
+</p>
+<label>Nombre</label>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+<p [style.font-style]="nameInput3.invalid ? 'italic':'normal'">Texto texto texto
+</p>
+
+<div class="imgStyle">
+  <div>
+    <input type="text"  [(ngModel)]="widthImg" />
+  </div>
+  <div>
+    <img [style.width.%]="widthImg" [src]="person.avatar">
+  </div>
+</div>
+<hr>
 <h1>*ngSwitch</h1>
 <input type="text" required  [(ngModel)]="person.name" />
 <div [ngSwitch]="person.name">
